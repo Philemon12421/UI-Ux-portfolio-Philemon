@@ -38,13 +38,13 @@ export default function ProjectDetail() {
             <div>
               <div className="flex gap-2 mb-6">
                 {project.tags.map(tag => (
-                  <span key={tag} className="text-xs font-black uppercase tracking-widest text-zinc-300 border border-zinc-100 px-3 py-1 rounded-full">
+                  <span key={tag} className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-zinc-300 border border-zinc-100 px-3 py-1 rounded-full">
                     {tag}
                   </span>
                 ))}
               </div>
-              <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.9]">{project.name}</h1>
-              <p className="text-2xl text-zinc-500 font-light leading-relaxed">{project.shortDescription}</p>
+              <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.9]">{project.name}</h1>
+              <p className="text-lg sm:text-2xl text-zinc-500 font-light leading-relaxed">{project.shortDescription}</p>
             </div>
             
             <div className="flex flex-wrap gap-8 lg:justify-end">
@@ -122,13 +122,13 @@ export default function ProjectDetail() {
       </section>
 
       {/* Conclusion */}
-      <section className="px-6 py-24 bg-zinc-900 text-white rounded-[64px] mx-6">
-        <div className="max-w-3xl mx-auto text-center space-y-8">
-          <span className="text-lemon font-black uppercase tracking-widest text-xs">Conclusion</span>
-          <h2 className="text-5xl font-bold tracking-tight text-white mb-4">Final Outcome</h2>
-          <p className="text-xl text-zinc-400 font-light leading-relaxed">{project.outcome}</p>
-          <div className="pt-8">
-            <button className="px-10 py-5 bg-lemon text-zinc-900 rounded-3xl font-bold inline-flex items-center gap-2 hover:bg-white transition-all transform hover:scale-105">
+      <section className="px-4 sm:px-6 py-16 sm:py-24 bg-zinc-900 text-white rounded-[40px] sm:rounded-[64px] mx-4 sm:mx-6">
+        <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
+          <span className="text-lemon font-black uppercase tracking-widest text-[10px] sm:text-xs">Conclusion</span>
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">Final Outcome</h2>
+          <p className="text-lg sm:text-xl text-zinc-400 font-light leading-relaxed">{project.outcome}</p>
+          <div className="pt-4 sm:pt-8">
+            <button className="w-full sm:w-auto px-10 py-5 bg-lemon text-zinc-900 rounded-3xl font-bold inline-flex items-center justify-center gap-2 hover:bg-white transition-all transform hover:scale-105">
               Launch Live Version
               <ArrowUpRight size={18} />
             </button>

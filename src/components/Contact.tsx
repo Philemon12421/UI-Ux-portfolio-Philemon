@@ -62,8 +62,8 @@ export default function Contact() {
         <div className="flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/3">
             <h2 className="text-xs font-black tracking-[0.2em] text-lemon-dark uppercase mb-4">Contact</h2>
-            <h3 className="text-5xl font-bold tracking-tight mb-6">Let’s work <br /><span className="text-zinc-300">together.</span></h3>
-            <p className="text-zinc-500 font-light mb-8 leading-relaxed">
+            <h3 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">Let’s work <br /><span className="text-zinc-300">together.</span></h3>
+            <p className="text-zinc-500 font-light mb-8 leading-relaxed max-w-md">
               Have a project in mind? Want to collaborate on something amazing? Or just want to say hi? 
               My inbox is always open.
             </p>

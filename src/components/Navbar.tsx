@@ -24,10 +24,10 @@ export default function Navbar() {
     <nav 
       className={`fixed top-6 left-0 right-0 z-50 transition-all duration-500 flex justify-center px-6`}
     >
-      <div className={`flex items-center gap-8 px-6 py-3 rounded-full transition-all duration-500 ${
+      <div className={`flex items-center gap-4 sm:gap-8 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-500 ${
         scrolled 
-          ? "glass shadow-xl shadow-zinc-200/50 w-full max-w-2xl" 
-          : "bg-white/50 backdrop-blur-sm border border-zinc-100 w-full max-w-4xl"
+          ? "glass shadow-xl shadow-zinc-200/50 w-full max-w-[90%] md:max-w-2xl" 
+          : "bg-white/50 backdrop-blur-sm border border-zinc-100 w-full max-w-[95%] md:max-w-4xl"
       }`}>
         <Link to="/" className="text-lg font-bold tracking-tighter flex items-center gap-2 shrink-0">
           <span className="w-7 h-7 bg-lemon rounded-lg flex items-center justify-center text-[10px] font-black">P.</span>

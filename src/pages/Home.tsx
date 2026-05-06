@@ -55,15 +55,15 @@ export default function Home() {
                   key={skill}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, backgroundColor: "rgba(199, 240, 0, 0.05)" }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white p-8 rounded-[32px] border border-zinc-100 flex items-center gap-4 transition-all hover:bg-lemon/5 hover:border-lemon/20 cursor-default"
+                  className="bg-white p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] border border-zinc-100 flex items-center gap-4 transition-all hover:border-lemon/20 cursor-default"
                 >
-                  <div className="w-10 h-10 bg-zinc-900 rounded-xl flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="text-lemon" size={20} />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-zinc-900 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="text-lemon" size={16} />
                   </div>
-                  <span className="font-bold text-zinc-900">{skill}</span>
+                  <span className="font-bold text-sm sm:text-base text-zinc-900">{skill}</span>
                 </motion.div>
               ))}
             </div>

@@ -8,13 +8,16 @@ export default function ReadmeSection() {
     { label: "Location", value: "Accra, Ghana", icon: <Terminal size={14} /> },
   ];
 
+  const words = "Hi, I'm Philemon Kusi".split(" ");
+
   return (
     <section className="py-24 px-6 bg-white overflow-hidden">
       <div className="max-w-4xl mx-auto">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
           className="bg-zinc-900 rounded-[40px] shadow-2xl overflow-hidden border border-zinc-800"
         >
           {/* Header */}
@@ -32,7 +35,7 @@ export default function ReadmeSection() {
           </div>
 
           {/* Content */}
-          <div className="p-8 md:p-12 font-mono">
+          <div className="p-6 sm:p-8 md:p-12 font-mono">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -42,19 +45,33 @@ export default function ReadmeSection() {
               }}
             >
               <motion.h2 
-                variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}
-                className="text-lemon text-xl md:text-3xl font-bold mb-8 flex items-center gap-4"
+                variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                className="text-lemon text-lg sm:text-xl md:text-3xl font-bold mb-6 md:mb-8 flex items-start sm:items-center gap-4"
               >
-                <span className="text-zinc-600">#</span>
-                Hi, I'm Philemon Kusi <span className="animate-pulse">_</span>
+                <span className="text-zinc-600 mt-1 sm:mt-0">#</span>
+                <span className="flex flex-wrap">
+                  {words.map((word, i) => (
+                    <motion.span
+                      key={i}
+                      variants={{ 
+                        hidden: { opacity: 0, y: 5 }, 
+                        visible: { opacity: 1, y: 0 } 
+                      }}
+                      className="mr-2 md:mr-3"
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                  <span className="animate-pulse text-zinc-500 ml-1">_</span>
+                </span>
               </motion.h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <motion.div 
                   variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
                   className="space-y-6"
                 >
-                  <p className="text-zinc-400 leading-relaxed text-sm">
+                  <p className="text-zinc-400 leading-relaxed text-xs sm:text-sm">
                     A multi-disciplinary designer and computer science scholar at KNUST. 
                     I build bridges between user empathy and technical feasibility.
                   </p>
@@ -90,8 +107,9 @@ export default function ReadmeSection() {
                     ].map((item, i) => (
                       <motion.li 
                         key={i}
-                        whileHover={{ x: 5 }}
-                        className="flex items-center gap-3 text-sm text-zinc-300"
+                        whileHover={{ x: 10, scale: 1.05, color: "#C7F000" }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="flex items-center gap-3 text-sm text-zinc-300 cursor-default"
                       >
                         <span className="text-lg">{item.icon}</span>
                         {item.text}

@@ -55,14 +55,21 @@ export default function Hero() {
             className="absolute -inset-8 border border-zinc-100 rounded-full"
           />
           
-          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10">
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.05, 1],
+              rotate: [0, 0, 0] // baseline
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10"
+          >
             <img 
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" 
               alt="Philemon Kusi"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
-          </div>
+          </motion.div>
           
           <motion.div 
             animate={{ y: [0, -5, 0] }}
@@ -81,10 +88,10 @@ export default function Hero() {
           <span className="inline-block px-4 py-1.5 bg-lemon/20 text-lemon-dark text-xs font-bold tracking-widest uppercase rounded-full mb-6">
             Based in Ghana
           </span>
-          <h1 className="text-5xl md:text-8xl font-black tracking-tight text-zinc-900 leading-[0.9] mb-8 text-balance">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-zinc-900 leading-[0.9] mb-8 text-balance">
             Designing Experiences That Feel <span className="text-zinc-400 font-light italic">Effortless.</span>
           </h1>
-          <p className="text-xl text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light px-4">
             UI/UX & Graphic Designer crafting intuitive, modern, and impactful digital products. 
             Blending Computer Science logic with creative vision.
           </p>
