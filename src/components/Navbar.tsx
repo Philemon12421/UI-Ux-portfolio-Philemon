@@ -22,38 +22,41 @@ export default function Navbar() {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass py-3" : "bg-transparent py-6"
-      }`}
+      className={`fixed top-6 left-0 right-0 z-50 transition-all duration-500 flex justify-center px-6`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold tracking-tighter flex items-center gap-2">
-          <span className="w-8 h-8 bg-lemon rounded-lg flex items-center justify-center text-xs font-black">P.</span>
-          Philemon <span className="font-light text-zinc-400">Osei Kusi</span>
+      <div className={`flex items-center gap-8 px-6 py-3 rounded-full transition-all duration-500 ${
+        scrolled 
+          ? "glass shadow-xl shadow-zinc-200/50 w-full max-w-2xl" 
+          : "bg-white/50 backdrop-blur-sm border border-zinc-100 w-full max-w-4xl"
+      }`}>
+        <Link to="/" className="text-lg font-bold tracking-tighter flex items-center gap-2 shrink-0">
+          <span className="w-7 h-7 bg-lemon rounded-lg flex items-center justify-center text-[10px] font-black">P.</span>
+          <span className="hidden sm:inline">Philemon</span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Nav - Centered items */}
+        <div className="flex-grow flex justify-center items-center gap-6 md:gap-10">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href} 
-              className="text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors"
+              className="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors whitespace-nowrap"
             >
               {link.name}
             </a>
           ))}
-          <a 
-            href="#contact" 
-            className="px-5 py-2 bg-zinc-900 text-white text-sm font-medium rounded-full hover:bg-lemon hover:text-zinc-900 transition-all"
-          >
-            Hire Me
-          </a>
         </div>
 
+        <a 
+          href="#contact" 
+          className="hidden md:flex px-5 py-2 bg-zinc-900 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-lemon hover:text-zinc-900 transition-all shrink-0"
+        >
+          Hire
+        </a>
+
         {/* Mobile Toggle */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        <button className="md:hidden shrink-0" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 

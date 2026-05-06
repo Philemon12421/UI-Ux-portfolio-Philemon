@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import ReadmeSection from "../components/ReadmeSection";
 import ProjectCard from "../components/ProjectCard";
 import Contact from "../components/Contact";
 import { PROJECTS, SKILLS, ACHIEVEMENTS } from "../constants";
@@ -33,6 +34,8 @@ export default function Home() {
       </section>
 
       <About />
+      
+      <ReadmeSection />
 
       {/* Skills Section */}
       <section id="skills" className="py-24 px-6 bg-zinc-50">

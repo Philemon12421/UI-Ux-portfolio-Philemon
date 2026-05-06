@@ -11,7 +11,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 px-6">
       {/* Background Decor */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lemon/10 rounded-full blur-[120px] -z-10" />
       
@@ -36,14 +36,50 @@ export default function Hero() {
         </motion.div>
       ))}
 
-      <div className="max-w-4xl mx-auto text-center z-10">
+      <div className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative mb-10"
+        >
+          {/* Animated decorative ring */}
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute -inset-4 border border-dashed border-lemon-dark/30 rounded-full"
+          />
+          <motion.div 
+            animate={{ rotate: -360 }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute -inset-8 border border-zinc-100 rounded-full"
+          />
+          
+          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" 
+              alt="Philemon Kusi"
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          
+          <motion.div 
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="absolute -bottom-2 -right-2 bg-lemon px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter shadow-lg z-20"
+          >
+            Digital Artist
+          </motion.div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block px-4 py-1.5 bg-lemon/20 text-lemon-dark text-xs font-bold tracking-widest uppercase rounded-full mb-6">
-            Available for Projects
+            Based in Ghana
           </span>
           <h1 className="text-5xl md:text-8xl font-black tracking-tight text-zinc-900 leading-[0.9] mb-8 text-balance">
             Designing Experiences That Feel <span className="text-zinc-400 font-light italic">Effortless.</span>
