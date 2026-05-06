@@ -1,0 +1,73 @@
+import { motion } from "motion/react";
+import { ArrowRight, Download, Figma, Image, PenTool, Layout, Monitor } from "lucide-react";
+
+export default function Hero() {
+  const tools = [
+    { icon: <Figma size={32} />, x: "15%", y: "20%", delay: 0 },
+    { icon: <Layout size={28} />, x: "80%", y: "15%", delay: 0.5 },
+    { icon: <PenTool size={24} />, x: "10%", y: "70%", delay: 1 },
+    { icon: <Image size={30} />, x: "85%", y: "60%", delay: 1.5 },
+    { icon: <Monitor size={26} />, x: "75%", y: "80%", delay: 0.8 },
+  ];
+
+  return (
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 px-6">
+      {/* Background Decor */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lemon/10 rounded-full blur-[120px] -z-10" />
+      
+      {/* Floating Icons */}
+      {tools.map((tool, i) => (
+        <motion.div
+          key={i}
+          className="absolute hidden lg:flex items-center justify-center w-16 h-16 bg-white shadow-xl rounded-2xl text-zinc-300 pointer-events-none z-0"
+          style={{ left: tool.x, top: tool.y }}
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 10, -10, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            delay: tool.delay,
+            ease: "easeInOut"
+          }}
+        >
+          {tool.icon}
+        </motion.div>
+      ))}
+
+      <div className="max-w-4xl mx-auto text-center z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="inline-block px-4 py-1.5 bg-lemon/20 text-lemon-dark text-xs font-bold tracking-widest uppercase rounded-full mb-6">
+            Available for Projects
+          </span>
+          <h1 className="text-5xl md:text-8xl font-black tracking-tight text-zinc-900 leading-[0.9] mb-8 text-balance">
+            Designing Experiences That Feel <span className="text-zinc-400 font-light italic">Effortless.</span>
+          </h1>
+          <p className="text-xl text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+            UI/UX & Graphic Designer crafting intuitive, modern, and impactful digital products. 
+            Blending Computer Science logic with creative vision.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a 
+              href="#work" 
+              className="group w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-2xl font-semibold flex items-center justify-center gap-2 hover:bg-lemon hover:text-zinc-900 transition-all shadow-xl shadow-zinc-200"
+            >
+              View Projects
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <button className="w-full sm:w-auto px-8 py-4 bg-white text-zinc-600 border border-zinc-200 rounded-2xl font-semibold flex items-center justify-center gap-2 hover:bg-zinc-50 transition-all">
+              Download Resume
+              <Download size={18} />
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
