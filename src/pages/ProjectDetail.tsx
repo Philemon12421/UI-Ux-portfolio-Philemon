@@ -47,19 +47,35 @@ export default function ProjectDetail() {
               <p className="text-lg sm:text-2xl text-zinc-500 font-light leading-relaxed">{project.shortDescription}</p>
             </div>
             
-            <div className="flex flex-wrap gap-8 lg:justify-end">
-              <div className="space-y-1">
-                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Tools Used</span>
-                <div className="flex flex-wrap gap-2">
-                  {project.tools.map(t => (
-                    <span key={t} className="px-3 py-1 bg-zinc-50 rounded-lg text-xs font-bold">{t}</span>
-                  ))}
+            <div className="flex flex-col gap-8 lg:items-end">
+              <div className="flex flex-wrap gap-8 lg:justify-end">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Tools Used</span>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tools.map(t => (
+                      <span key={t} className="px-3 py-1 bg-zinc-50 rounded-lg text-xs font-bold">{t}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Role</span>
+                  <p className="text-sm font-bold">Lead UI/UX Designer</p>
                 </div>
               </div>
-              <div className="space-y-1">
-                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Role</span>
-                <p className="text-sm font-bold">Lead UI/UX Designer</p>
-              </div>
+
+              {project.liveUrl && (
+                <div className="pt-4 sm:pt-8 w-full sm:w-auto">
+                  <a 
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-10 py-5 bg-lemon text-zinc-900 rounded-3xl font-bold inline-flex items-center justify-center gap-3 hover:bg-white transition-all transform hover:scale-105 shadow-xl shadow-lemon/10"
+                  >
+                    Launch Live Version
+                    <ArrowUpRight size={18} />
+                  </a>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

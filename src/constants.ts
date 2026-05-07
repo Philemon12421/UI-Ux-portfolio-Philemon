@@ -11,6 +11,7 @@ export interface Project {
   outcome: string;
   tools: string[];
   screens: string[];
+  liveUrl?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -30,7 +31,8 @@ export const PROJECTS: Project[] = [
       "https://picsum.photos/seed/b1/1200/800",
       "https://picsum.photos/seed/b2/1200/800",
       "https://picsum.photos/seed/b3/1200/800"
-    ]
+    ],
+    liveUrl: "https://example.com/bankiti"
   },
   {
     id: "zudika",
@@ -47,7 +49,8 @@ export const PROJECTS: Project[] = [
     screens: [
       "https://picsum.photos/seed/z1/1200/800",
       "https://picsum.photos/seed/z2/1200/800"
-    ]
+    ],
+    liveUrl: "https://example.com/zudika"
   },
   {
     id: "iseek",
@@ -64,7 +67,8 @@ export const PROJECTS: Project[] = [
     screens: [
       "https://picsum.photos/seed/i1/1200/800",
       "https://picsum.photos/seed/i2/1200/800"
-    ]
+    ],
+    liveUrl: "https://example.com/iseek"
   }
 ];
 

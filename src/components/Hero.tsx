@@ -81,34 +81,66 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { 
+              opacity: 1,
+              transition: { staggerChildren: 0.1, delayChildren: 0.3 }
+            }
+          }}
+          className="flex flex-col items-center"
         >
-          <span className="inline-block px-4 py-1.5 bg-lemon/20 text-lemon-dark text-xs font-bold tracking-widest uppercase rounded-full mb-6">
+          <motion.span 
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+            className="inline-block px-4 py-1.5 bg-lemon/20 text-lemon-dark text-xs font-bold tracking-widest uppercase rounded-full mb-6"
+          >
             Based in Ghana
-          </span>
+          </motion.span>
+          
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-zinc-900 leading-[0.9] mb-8 text-balance">
-            Designing Experiences That Feel <span className="text-zinc-400 font-light italic">Effortless.</span>
+            {"Designing Experiences That Feel ".split(" ").map((word, i) => (
+              <motion.span 
+                key={i} 
+                className="inline-block mr-[0.2em]"
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              >
+                {word}
+              </motion.span>
+            ))}
+            <motion.span 
+              className="text-zinc-400 font-light italic inline-block"
+              variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}
+            >
+              Effortless.
+            </motion.span>
           </h1>
-          <p className="text-lg md:text-xl text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light px-4">
+          
+          <motion.p 
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            className="text-lg md:text-xl text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light px-4 transition-all duration-700"
+          >
             UI/UX & Graphic Designer crafting intuitive, modern, and impactful digital products. 
             Blending Computer Science logic with creative vision.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.div 
+            variants={{ hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1 } }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
             <a 
               href="#work" 
-              className="group w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-2xl font-semibold flex items-center justify-center gap-2 hover:bg-lemon hover:text-zinc-900 transition-all shadow-xl shadow-zinc-200"
+              className="group w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-2xl font-semibold flex items-center justify-center gap-2 hover:bg-lemon hover:text-zinc-900 transition-all shadow-xl shadow-zinc-200 active:scale-95"
             >
               View Projects
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white text-zinc-600 border border-zinc-200 rounded-2xl font-semibold flex items-center justify-center gap-2 hover:bg-zinc-50 transition-all">
+            <button className="group w-full sm:w-auto px-8 py-4 bg-white text-zinc-600 border border-zinc-200 rounded-2xl font-semibold flex items-center justify-center gap-2 hover:bg-zinc-50 transition-all active:scale-95">
               Download Resume
-              <Download size={18} />
+              <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
             </button>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

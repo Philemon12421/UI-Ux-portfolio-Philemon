@@ -28,13 +28,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[3px]">
             <motion.span 
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              animate={
+                {
+                  boxShadow: ["0 0 0px 0px rgba(199, 240, 0, 0)", "0 0 20px 2px rgba(199, 240, 0, 0.3)", "0 0 0px 0px rgba(199, 240, 0, 0)"]
+                }
+              }
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
               whileHover={{ 
-                scale: 1.1,
+                scale: 1.15,
                 backgroundColor: "#C7F000",
                 color: "#18181b",
-                boxShadow: "0 0 25px 5px rgba(199, 240, 0, 0.4)"
+                boxShadow: "0 0 40px 10px rgba(199, 240, 0, 0.6)",
+                transition: { duration: 0.2 }
               }}
-              className="px-6 py-3 bg-white text-zinc-900 rounded-full font-bold flex items-center gap-2 transform group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-xl"
+              className="px-6 py-3 bg-white text-zinc-900 rounded-full font-bold flex items-center gap-2 transform group-hover:translate-y-0 group-hover:opacity-100 transition-all shadow-xl"
             >
               View Case Study
               <ArrowUpRight size={18} />

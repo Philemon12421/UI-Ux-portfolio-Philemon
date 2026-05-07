@@ -1,35 +1,81 @@
-import { motion } from "motion/react";
+import React, { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import ReadmeSection from "../components/ReadmeSection";
 import ProjectCard from "../components/ProjectCard";
 import Contact from "../components/Contact";
 import { PROJECTS, SKILLS, ACHIEVEMENTS } from "../constants";
-import { Star, Award, CheckCircle2 } from "lucide-react";
+import { Star, Award, CheckCircle2, Filter } from "lucide-react";
 
 export default function Home() {
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const categories = useMemo(() => {
+    const tags = PROJECTS.flatMap(p => p.tags);
+    return ["All", ...new Set(tags)];
+  }, []);
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === "All") return PROJECTS;
+    return PROJECTS.filter(p => p.tags.includes(activeFilter));
+  }, [activeFilter]);
+
   return (
     <div className="bg-white">
       <Hero />
       
       {/* Featured Work */}
-      <section id="work" className="py-24 px-6">
+      <section id="work" className="py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-            <div>
-              <h2 className="text-xs font-black tracking-[0.2em] text-lemon-dark uppercase mb-4">Portfolio</h2>
-              <h3 className="text-5xl font-bold tracking-tight">Selected <br /><span className="text-zinc-300">Works.</span></h3>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+            <div className="space-y-4">
+              <h2 className="text-xs font-black tracking-[0.2em] text-lemon-dark uppercase">Portfolio</h2>
+              <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">Selected <br /><span className="text-zinc-300">Works.</span></h3>
             </div>
-            <p className="text-zinc-500 max-w-sm mb-2 font-light">
-              Explorations in digital craft, prioritizing user needs and clean software architecture.
-            </p>
+            
+            <div className="flex flex-col gap-6 w-full md:w-auto">
+              <div className="flex items-center gap-3 text-zinc-400 text-xs font-bold uppercase tracking-widest bg-zinc-50 px-4 py-2 rounded-full w-fit">
+                <Filter size={14} />
+                Filter by
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveFilter(cat)}
+                    className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all border ${
+                      activeFilter === cat 
+                        ? "bg-zinc-900 text-white border-zinc-900 shadow-lg shadow-zinc-200" 
+                        : "bg-white text-zinc-400 border-zinc-100 hover:border-lemon hover:text-zinc-900"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PROJECTS.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
+          <motion.div 
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ProjectCard project={project} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
