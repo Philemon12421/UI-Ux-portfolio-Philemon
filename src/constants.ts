@@ -73,13 +73,13 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SKILLS = [
-  "UI/UX Design",
-  "Graphic Design",
-  "Prototyping (Figma)",
-  "Branding",
-  "Web Design",
-  "Motion Design / Blender",
-  "Frontend (React, Tailwind)"
+  { name: "UI/UX Design", description: "Crafting user-centered interfaces and intuitive user experiences." },
+  { name: "Graphic Design", description: "Creating visual concepts to communicate ideas that inspire and captivate." },
+  { name: "Prototyping (Figma)", description: "Building high-fidelity interactive prototypes to test ideas early." },
+  { name: "Branding", description: "Developing unique visual identities that stand out in the market." },
+  { name: "Web Design", description: "Designing responsive and modern websites that perform beautifully." },
+  { name: "Motion Design / Blender", description: "Adding life to products through 3D modeling and motion graphics." },
+  { name: "Frontend (React, Tailwind)", description: "Translating designs into clean, functional, and performant code." }
 ];
 
 export const ACHIEVEMENTS = [

@@ -19,10 +19,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     >
       <Link to={`/project/${project.id}`} className="block space-y-4">
         <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden bg-zinc-100 shadow-sm group-hover:shadow-2xl group-hover:shadow-lemon/10 transition-all duration-500">
-          <img 
+          <motion.img 
             src={project.thumbnail} 
             alt={project.name}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-700"
+            whileHover={{ scale: 1.15, y: -5 }}
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[3px]">
