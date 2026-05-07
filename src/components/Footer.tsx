@@ -10,13 +10,13 @@ export default function Footer() {
         </div>
         
         <div className="flex gap-6 text-zinc-600">
-          <a href="#" className="w-10 h-10 rounded-full bg-white border border-zinc-100 flex items-center justify-center hover:bg-lemon transition-all hover:-translate-y-1 shadow-sm">
+          <a href="https://github.com/Philemon12421" className="w-10 h-10 rounded-full bg-white border border-zinc-100 flex items-center justify-center hover:bg-lemon transition-all hover:-translate-y-1 shadow-sm">
             <Github size={18} />
           </a>
-          <a href="#" className="w-10 h-10 rounded-full bg-white border border-zinc-100 flex items-center justify-center hover:bg-lemon transition-all hover:-translate-y-1 shadow-sm">
+          <a href="https://www.linkedin.com/in/philemon--softwareengineer?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="w-10 h-10 rounded-full bg-white border border-zinc-100 flex items-center justify-center hover:bg-lemon transition-all hover:-translate-y-1 shadow-sm">
             <Linkedin size={18} />
           </a>
-          <a href="#" className="w-10 h-10 rounded-full bg-white border border-zinc-100 flex items-center justify-center hover:bg-lemon transition-all hover:-translate-y-1 shadow-sm">
+          <a href="https://dribbble.com/job-apply" className="w-10 h-10 rounded-full bg-white border border-zinc-100 flex items-center justify-center hover:bg-lemon transition-all hover:-translate-y-1 shadow-sm">
             <Dribbble size={18} />
           </a>
           <a href="mailto:philemonkusi292@gmail.com" className="w-10 h-10 rounded-full bg-white border border-zinc-100 flex items-center justify-center hover:bg-lemon transition-all hover:-translate-y-1 shadow-sm">
