@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, Github, Linkedin, Dribbble } from "lucide-react";
 import React, { useState } from "react";
 
 export default function Contact() {
@@ -73,9 +73,15 @@ export default function Contact() {
                 philemonkusi292@gmail.com
               </a>
               <div className="flex gap-4 pt-4">
-                <span className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer">Li</span>
-                <span className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer">Gh</span>
-                <span className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer">Dr</span>
+                <a href="#" className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer group">
+                  <Linkedin size={18} className="group-hover:scale-110 transition-transform" />
+                </a>
+                <a href="#" className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer group">
+                  <Github size={18} className="group-hover:scale-110 transition-transform" />
+                </a>
+                <a href="#" className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer group">
+                  <Dribbble size={18} className="group-hover:scale-110 transition-transform" />
+                </a>
               </div>
             </div>
           </div>
@@ -85,7 +91,8 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 ml-2">Name</label>
                 <div className="relative">
-                  <input 
+                  <motion.input 
+                    whileFocus={{ scale: 1.01 }}
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -104,7 +111,8 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 ml-2">Email</label>
                 <div className="relative">
-                  <input 
+                  <motion.input 
+                    whileFocus={{ scale: 1.01 }}
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
@@ -123,14 +131,15 @@ export default function Contact() {
               <div className="space-y-2 md:col-span-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 ml-2">Message</label>
                 <div className="relative">
-                  <textarea 
+                  <motion.textarea 
+                    whileFocus={{ scale: 1.01 }}
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
                     placeholder="Tell me about your project..."
                     className={`w-full p-5 bg-zinc-50 border ${errors.message ? 'border-red-400 focus:ring-red-50' : 'border-zinc-100 focus:ring-lemon/5'} rounded-3xl outline-none focus:border-lemon focus:ring-4 transition-all transition-colors resize-none`}
-                  ></textarea>
+                  ></motion.textarea>
                   {errors.message && (
                     <span className="absolute right-4 bottom-4 text-red-500 flex items-center gap-1 text-xs">
                       <AlertCircle size={14} />
@@ -140,7 +149,11 @@ export default function Contact() {
                 </div>
               </div>
               <div className="md:col-span-2 pt-4">
-                <button 
+                <motion.button 
+                  animate={!isSubmitting && !isSuccess ? { scale: [1, 1.02, 1] } : {}}
+                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   type="submit"
                   disabled={isSubmitting}
                   className={`px-10 py-5 ${isSuccess ? 'bg-lemon text-zinc-900 shadow-lemon/20' : 'bg-zinc-900 text-white'} rounded-3xl font-bold flex items-center gap-2 hover:opacity-90 disabled:opacity-50 transition-all shadow-xl shadow-zinc-200`}
@@ -152,7 +165,7 @@ export default function Contact() {
                   ) : (
                     <>Send Message <Send size={18} /></>
                   )}
-                </button>
+                </motion.button>
               </div>
             </form>
           </div>
