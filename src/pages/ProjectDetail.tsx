@@ -8,6 +8,8 @@ export default function ProjectDetail() {
   const navigate = useNavigate();
   const project = PROJECTS.find(p => p.id === id);
 
+  const isGraphicDesign = project?.category === "Graphic Design";
+
   if (!project) {
     return (
       <div className="min-h-screen flex items-center justify-center flex-col gap-4">
@@ -83,13 +85,30 @@ export default function ProjectDetail() {
 
       {/* Hero Image */}
       <section className="px-6 mb-24">
-        <div className="max-w-7xl mx-auto rounded-[48px] overflow-hidden aspect-[21/9] shadow-2xl shadow-zinc-100">
-          <img 
-            src={project.thumbnail} 
-            alt={project.name} 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
+        <div className="max-w-7xl mx-auto">
+          {isGraphicDesign ? (
+            // Flyers: show thumbnail as a centered portrait card, not full-bleed
+            <div className="flex justify-center">
+              <div className="w-full max-w-sm rounded-[32px] overflow-hidden shadow-2xl shadow-zinc-200">
+                <img
+                  src={project.thumbnail}
+                  alt={project.name}
+                  className="w-full h-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </div>
+          ) : (
+            // UI/UX projects: keep the cinematic widescreen banner
+            <div className="rounded-[48px] overflow-hidden aspect-[21/9] shadow-2xl shadow-zinc-100">
+              <img
+                src={project.thumbnail}
+                alt={project.name}
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          )}
         </div>
       </section>
 
@@ -117,23 +136,49 @@ export default function ProjectDetail() {
 
       {/* Screen Gallery */}
       <section className="px-6 py-24">
-        <div className="max-w-7xl mx-auto space-y-12">
-          {project.screens.map((screen, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-[32px] overflow-hidden border border-zinc-100"
-            >
-              <img 
-                src={screen} 
-                alt={`${project.name} Screen ${i + 1}`} 
-                className="w-full h-auto"
-                referrerPolicy="no-referrer"
-              />
-            </motion.div>
-          ))}
+        <div className="max-w-7xl mx-auto">
+          {isGraphicDesign ? (
+            // Flyers gallery: responsive grid of portrait cards
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {project.screens.map((screen, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="rounded-[24px] overflow-hidden border border-zinc-100 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-zinc-50"
+                >
+                  <img
+                    src={screen}
+                    alt={`${project.name} Flyer ${i + 1}`}
+                    className="w-full h-auto object-contain"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            // UI/UX gallery: full-width stacked screens (original layout)
+            <div className="space-y-12">
+              {project.screens.map((screen, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="rounded-[32px] overflow-hidden border border-zinc-100"
+                >
+                  <img
+                    src={screen}
+                    alt={`${project.name} Screen ${i + 1}`}
+                    className="w-full h-auto"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
