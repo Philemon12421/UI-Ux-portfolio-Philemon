@@ -22,23 +22,35 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     >
       <Link to={`/project/${project.id}`} className="block space-y-4">
         {/* Image Container */}
-        <div className="relative aspect-[4/3] rounded-[28px] overflow-hidden bg-zinc-100 shadow-sm group-hover:shadow-xl group-hover:shadow-zinc-200/60 transition-all duration-500">
+        <div
+          className={`relative overflow-hidden bg-zinc-100 shadow-sm group-hover:shadow-xl group-hover:shadow-zinc-200/60 transition-all duration-500 ${
+            isGraphicDesign
+              ? "aspect-[3/4] rounded-[20px]"
+              : "aspect-[4/3] rounded-[28px]"
+          }`}
+        >
           <img
             src={project.thumbnail}
             alt={project.name}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
+              isGraphicDesign
+                ? "object-cover object-top"
+                : "object-cover"
+            }`}
           />
 
           {/* Graphic Design badge overlay — top right */}
           {isGraphicDesign && (
-            <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+            <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
               <Palette size={12} className="text-rose-500" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-rose-500">Design</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-rose-500">
+                Design
+              </span>
             </div>
           )}
 
           {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-zinc-900/70 opacity-0 group-hover:opacity-100 transition-all duration-400 backdrop-blur-[2px] flex flex-col items-center justify-center gap-4 p-6 text-center">
+          <div className="absolute inset-0 bg-zinc-900/65 opacity-0 group-hover:opacity-100 transition-all duration-400 backdrop-blur-[2px] flex flex-col items-center justify-center gap-4 p-6 text-center">
             <h4 className="text-white text-xl font-bold transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400 delay-75">
               {project.name}
             </h4>
