@@ -26,7 +26,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             whileHover={{ scale: 1.15, y: -5 }}
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[3px]">
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center backdrop-blur-[3px] p-6 text-center">
+            <motion.h4 
+              className="text-white text-xl font-bold mb-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-75"
+            >
+              {project.name}
+            </motion.h4>
             <motion.span 
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={
