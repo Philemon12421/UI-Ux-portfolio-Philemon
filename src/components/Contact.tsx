@@ -76,7 +76,7 @@ export default function Contact() {
                 <a href="#" className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer group">
                   <Linkedin size={18} className="group-hover:scale-110 transition-transform" />
                 </a>
-                <a href="#" className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer group">
+                <a href="https://github.com/Philemon12421" className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer group">
                   <Github size={18} className="group-hover:scale-110 transition-transform" />
                 </a>
                 <a href="#" className="w-10 h-10 border border-zinc-100 rounded-xl flex items-center justify-center hover:bg-lemon transition-colors cursor-pointer group">
@@ -97,7 +97,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     type="text" 
-                    placeholder="John Doe"
+                    placeholder="Your name"
                     className={`w-full p-5 bg-zinc-50 border ${errors.name ? 'border-red-400 focus:ring-red-50' : 'border-zinc-100 focus:ring-lemon/5'} rounded-3xl outline-none focus:border-lemon focus:ring-4 transition-all transition-colors`}
                   />
                   {errors.name && (
@@ -117,7 +117,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     type="email" 
-                    placeholder="john@example.com"
+                    placeholder="Your@example.com"
                     className={`w-full p-5 bg-zinc-50 border ${errors.email ? 'border-red-400 focus:ring-red-50' : 'border-zinc-100 focus:ring-lemon/5'} rounded-3xl outline-none focus:border-lemon focus:ring-4 transition-all transition-colors`}
                   />
                   {errors.email && (
