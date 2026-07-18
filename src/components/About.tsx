@@ -22,12 +22,12 @@ export default function About() {
             <div className="space-y-6 text-zinc-500 text-lg font-light leading-relaxed">
               <p>
                 Philemon Osei Kusi is a passionate UI/UX and Graphic Designer and Computer Science student at KNUST. 
-                Since starting his design journey in 2023, he has worked on multiple impactful projects across 
+                Since starting my design journey in 2023, I have worked on multiple impactful projects across 
                 different industries, including Bankiti, Zudika, and ISeek.
               </p>
               <p>
-                He specializes in creating intuitive user experiences, clean interfaces, and visually engaging designs 
-                that solve real-world problems. His technical background in computer science gives him an edge in 
+                I specializes in creating intuitive user experiences, clean interfaces, and visually engaging designs 
+                that solve real-world problems. My technical background in computer science gives me an edge in 
                 understanding both design and development workflows.
               </p>
             </div>
