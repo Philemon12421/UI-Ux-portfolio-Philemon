@@ -175,13 +175,13 @@ export default function Home() {
                 {
                   quote:
                     "Philemon has a rare ability to understand complex technical constraints and turn them into beautiful, simple user journeys.",
-                  author: "Alex Benson",
+                  author: "Daniel Ankomah",
                   role: "Project Manager, Bankiti",
                 },
                 {
                   quote:
                     "His attention to detail and passion for UI consistency helped us scale our design system globally with zero friction.",
-                  author: "Sarah Chen",
+                  author: "Dominic Owusu",
                   role: "Lead Platform Designer, Zudika",
                 },
               ].map((testi, i) => (
